@@ -21,7 +21,7 @@ public class BinaryHeap<T extends Comparable<T>>
       buildHeapTopDown();
       //buildHeapBottomUp();
    }
-	
+
    private void buildHeapBottomUp()
    {
       for(int i = count / 2; i >= 1; i--)
@@ -133,17 +133,28 @@ public class BinaryHeap<T extends Comparable<T>>
    public static Boolean isMinHeap(Comparable[] heap){
       int h = heap.length - 1;
 
+      System.out.println(h);
+
+
       for (int i = (h/ 2 - 1); i >= 0; i--){
 
-         //Checking Right child
-         if (heap[i].compareTo(heap[2 * i + 1]) == 1)
-            return false;
-         //Checking Left Child
-         if (2 * i + 2 < h) {
-            if (heap[i].compareTo(heap[2 * i + 2]) == 1)
-               return false;
-         }
+         if (heap[i] == null)
+            return true;
 
+         //Checking Right child
+
+         if (heap[i].compareTo(heap[2 * i + 1]) == 1) {
+
+            return false;
+         }
+         //Checking Left Child
+
+         if (2 * i + 2 < h) {
+            if (heap[i].compareTo(heap[2 * i + 2]) == 1) {
+
+               return false;
+            }
+         }
 
       }
       return true;
